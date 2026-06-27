@@ -73,10 +73,10 @@ Optional: Save the diff report automatically.
   - datetime
   - json
   - argparse
-- **Projektstruktur**
+- **Project Structure**
   - Modularer Aufbau (scanner, diff, utils)
   - Saubere Trennung von Logik und CLI
-- **Zukünftige Erweiterungen**
+- **Future enhancements**
   - GUI (Tkinter oder PyQt)
   - HTML‑Export
   - Plugin‑System
