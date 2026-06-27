@@ -156,18 +156,21 @@ python3 main.py --help
 
 ## 📁 Project Structure
 ```markdown
-modules/
-  scanner/
-    scanner.py        # Port scanning logic
-    threader.py       # Worker threads
-    utils.py          # Banner grabbing
-    writer.py         # Log writer
-  diff/
-    diff.py           # Diff logic
-    diff_report.py    # Report formatting
-logs/                 # Auto-generated logs
-main.py               # CLI entry point
-logo.svg              # Logo
+portscanner/
+|-- main.py               # CLI entry point
+|-- logo.svg              # Logo
+|-- README.md
+|-- modules/
+|  |-- scanner/
+|  |  |-- scanner.py        # Port scanning logic
+|  |  |-- threader.py       # Worker threads
+|  |  |-- utils.py          # Banner grabbing
+|  |  |-- writer.py         # Log writer
+|  |-- diff/
+|  |  |-- diff.py           # Diff logic
+|  |  |-- diff_report.py    # Report formatting
+|  |-- logs/                 # Auto-generated logs
+
 ```
 
 ---
