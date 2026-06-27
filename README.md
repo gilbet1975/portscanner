@@ -64,6 +64,25 @@ Optional: Save the diff report automatically.
 
 ---
 
+## 🧰 Tech Stack
+
+- **Python 3.10+**
+- **Standard Library**
+  - socket
+  - threading
+  - datetime
+  - json
+  - argparse
+- **Projektstruktur**
+  - Modularer Aufbau (scanner, diff, utils)
+  - Saubere Trennung von Logik und CLI
+- **Zukünftige Erweiterungen**
+  - GUI (Tkinter oder PyQt)
+  - HTML‑Export
+  - Plugin‑System
+
+---
+
 ## 📦 Installation
 
 ```bash
