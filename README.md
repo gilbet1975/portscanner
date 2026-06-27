@@ -2,16 +2,16 @@
   <img src="logo.svg" width="700" alt="Portscanner Toolkit Logo">
 </p>
 
-# 🔍 Portscanner Toolkit  
-### A fast, modular, and extensible network security toolkit  
-by **@gilbet1975**
-
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge">
   <img src="https://img.shields.io/github/last-commit/gilbet1975/portscanner?style=for-the-badge">
   <img src="https://img.shields.io/github/languages/top/gilbet1975/portscanner?style=for-the-badge">
 </p>
+
+# 🔍 Portscanner Toolkit  
+### A fast, modular, and extensible network security toolkit  
+by **@gilbet1975**
 
 ---
 
@@ -105,21 +105,39 @@ The goal is not to replace professional scanners, but to create a lightweight, m
 
 ## 📦 Installation
 
+Clone the repository and navigate into the project directory:
+
 ```bash
-git clone https://github.com/gilbet1975/portscanner.git
-cd portscanner
+git clone https://github.com/<your-username>/portscanner-toolkit.git
+cd portscanner-toolkit
 ```
+Run the help menu to see all available options:
+```bash
+python3 main.py --help
+```
+No external dependencies are required — the toolkit uses only Python’s standard library.
 
 ---
 
 ## 🧪 Usage
 
-### Run a Port Scan
+### 🔍 Basic Port Scan
+Scan a single host with 50 threads:
 ```bash
-python main.py --scan --host 192.168.1.10 --start 1 --end 2000 --threads 300
+python3 main.py --host 192.168.1.10 --threads 50
 ```
 
+### 🧵 Multi‑Threaded Scan
+Increase thread count for faster scanning:
+```bash
+python3 main.py --host 10.0.0.5 --threads 200
+```
+
+## 🏷️ Save Output to Log File
+All scans are automatically saved in the logs/ directory with timestamps.
+
 ### Run the Diff Analyzer
+Compare two previous scans:
 ```bash
 python main.py --diff logs/scan_old.txt logs/scan_new.txt
 ```
@@ -127,6 +145,11 @@ python main.py --diff logs/scan_old.txt logs/scan_new.txt
 ### Save the Diff Report
 ```bash
 python main.py --diff scan1.txt scan2.txt --save
+```
+
+### 📁 Show Help
+```bash
+python3 main.py --help
 ```
 
 ---
@@ -144,11 +167,14 @@ modules/
     diff_report.py    # Report formatting
 logs/                 # Auto-generated logs
 main.py               # CLI entry point
+logo.svg              # Logo
 ```
 
 ---
 
 ## 🛣️ Roadmap
+- [x] Clean project structure
+- [x] Add README with logo and sections
 - [ ] JSON output for scanner
 - [ ] JSON output for diff analyzer
 - [ ] GUI (Tkinter or PyQt)
