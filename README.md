@@ -54,13 +54,14 @@ Optional: Save the diff report automatically.
 
 ## 🖼️ Screenshots (Placeholders)
 
-> Screenshots are coming later.
+> Real screenshots will be added in v1.0.0  
+> For now, here is the planned layout:
 
-### Port Scan Output  
-![Scan Screenshot](docs/screenshots/scan_example.png)
+### 🔍 Port Scan Output (planned)
+![Port Scan Placeholder](https://via.placeholder.com/900x300?text=Port+Scan+Output)
 
-### Diff Analyzer Output  
-![Diff Screenshot](docs/screenshots/diff_example.png)
+### 🔄 Diff Analyzer Output (planned)
+![Diff Analyzer Placeholder](https://via.placeholder.com/900x300?text=Diff+Analyzer+Output)
 
 ---
 
