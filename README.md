@@ -176,15 +176,53 @@ portscanner/
 ---
 
 ## 🛣️ Roadmap
+
+### **Phase 1 — Core Scanner (Completed)**
 - [x] Clean project structure
-- [x] Add README with logo and sections
+- [x] Add README with logo and badges
+- [x] Add installation & usage sections
+- [x] Multi-threaded port scanning
+- [x] Logging system with timestamped files
+
+---
+
+### **Phase 2 — Output & Analysis**
 - [ ] JSON output for scanner
 - [ ] JSON output for diff analyzer
-- [ ] GUI (Tkinter or PyQt)
+- [ ] Improved diff report formatting
+- [ ] Auto-save structured scan metadata
+
+---
+
+### **Phase 3 — Advanced Scanning Features**
 - [ ] UDP scan mode
-- [ ] Auto‑diff: “Compare last scan with previous one”
-- [ ] Export as HTML report
+- [ ] Service detection (basic)
+- [ ] Banner grabbing (optional)
+- [ ] Auto-diff mode (compare last two scans automatically)
+
+---
+
+### **Phase 4 — User Interface**
+- [ ] GUI (Tkinter or PyQt)
+- [ ] Live scan progress view
+- [ ] Visual diff comparison
+- [ ] Export results from GUI
+
+---
+
+### **Phase 5 — Reporting & Export**
+- [ ] HTML report export
+- [ ] Markdown report export
+- [ ] PDF export (optional)
+- [ ] Custom report templates
+
+---
+
+### **Phase 6 — Extensibility & Plugins**
 - [ ] Plugin system for custom scanners
+- [ ] Plugin loader & registry
+- [ ] Example plugins (e.g., slow-scan, stealth-scan)
+- [ ] Developer documentation for plugin authors
 
 ---
 
