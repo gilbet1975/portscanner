@@ -83,12 +83,28 @@ Optional: Save the diff report automatically.
 
 ---
 
+## ❓ Why this project?
+
+I wanted to build a port scanner that is fast, transparent, and fully under my control — without the complexity or bloat of many existing tools.  
+This project started as a personal learning journey to deepen my understanding of networking, sockets, multithreading, and clean modular design.
+
+Over time, it evolved into a toolkit that is:
+- easy to extend  
+- easy to understand  
+- fully open-source  
+- and built with a clear, modern architecture  
+
+The goal is not to replace professional scanners, but to create a lightweight, modular alternative that is perfect for learning, experimenting, and building custom security tools.
+
+---
+
 ## 📦 Installation
 
 ```bash
 git clone https://github.com/gilbet1975/portscanner.git
 cd portscanner
 ```
+
 ---
 
 ## 🧪 Usage
@@ -108,6 +124,8 @@ python main.py --diff logs/scan_old.txt logs/scan_new.txt
 python main.py --diff scan1.txt scan2.txt --save
 ```
 
+---
+
 ## 📁 Project Structure
 ```markdown
 modules/
@@ -123,6 +141,8 @@ logs/                 # Auto-generated logs
 main.py               # CLI entry point
 ```
 
+---
+
 ## 🛣️ Roadmap
 - [ ] JSON output for scanner
 - [ ] JSON output for diff analyzer
@@ -132,6 +152,8 @@ main.py               # CLI entry point
 - [ ] Export as HTML report
 - [ ] Plugin system for custom scanners
 
+---
+
 ## 🤝 Contributing
 Contributions are welcome!
 Feel free to open:
@@ -139,8 +161,12 @@ Feel free to open:
 - Feature requests
 - Pull requests
 
+---
+
 ## 📜 License
 This project is licensed under the MIT License.
+
+---
 
 ## ⭐ Author
 Gilles Bettendorf  
