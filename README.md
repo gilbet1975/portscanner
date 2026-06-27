@@ -79,8 +79,8 @@ Optional: Save the diff report automatically.
   - json
   - argparse
 - **Project Structure**
-  - Modularer Aufbau (scanner, diff, utils)
-  - Saubere Trennung von Logik und CLI
+  - Modular structure (scanner, diff, utils)
+  - Clean separation between core logic and the CLI
 - **Future enhancements**
   - GUI (Tkinter oder PyQt)
   - HTML‑Export
