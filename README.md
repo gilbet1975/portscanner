@@ -157,8 +157,8 @@ python3 main.py --help
 ## 📁 Project Structure
 ```markdown
 portscanner/
-|-- main.py               # CLI entry point
-|-- logo.svg              # Logo
+|-- main.py                 # CLI entry point
+|-- logo.svg                # Logo
 |-- README.md
 |-- modules/
 |  |-- scanner/
@@ -169,7 +169,7 @@ portscanner/
 |  |-- diff/
 |  |  |-- diff.py           # Diff logic
 |  |  |-- diff_report.py    # Report formatting
-|  |-- logs/                 # Auto-generated logs
+|  |-- logs/                # Auto-generated logs
 
 ```
 
