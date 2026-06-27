@@ -1,7 +1,7 @@
 from modules.scanner.threader import worker
 from modules.scanner.writer import write_result
 from modules.diff.diff_report import print_diff
-
+from modules.output.metadata import ScanMetadata
 from datetime import datetime
 from queue import Queue
 import threading
@@ -10,6 +10,12 @@ import os
 
 
 def run_scan(host, start_port, end_port, thread_count, output_file):
+    metadata = ScanMetadata(
+        host=host,
+        threads=thread_count,
+        log_file=output_file
+    )
+
     # Write scan header
     write_result(output_file, f"--- Scan started on {host} ---")
 
@@ -33,6 +39,29 @@ def run_scan(host, start_port, end_port, thread_count, output_file):
     end_str = datetime.now().strftime("%Y%m%d-%H%M%S")
     write_result(output_file, f"--- Scan finished at {end_str} ---")
 
+    # Mark metadata as finished
+    metadata.finish()
+
+    # -----------------------------------------
+    # JSON Output (Phase 2)
+    # -----------------------------------------
+    from modules.output.json_writer import JSONWriter
+
+    # Extract open ports from the log file
+    open_ports = []
+    with open(output_file, "r") as f:
+        for line in f:
+            if line.startswith("[OPEN]"):
+                port = int(line.split()[1])
+                open_ports.append(port)
+
+    # Build final JSON structure
+    scan_result = metadata.to_dict()
+    scan_result["open_ports"] = sorted(open_ports)
+
+    # Write JSON file
+    writer = JSONWriter()
+    writer.write(scan_result, prefix="scan_json")
 
 def main():
     parser = argparse.ArgumentParser(description="Portscanner Toolkit")
