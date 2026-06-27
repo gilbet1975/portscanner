@@ -54,7 +54,7 @@ Optional: Save the diff report automatically.
 
 ## 🖼️ Screenshots (Placeholders)
 
-> Replace these with real screenshots later.
+> Screenshots are coming later.
 
 ### Port Scan Output  
 ![Scan Screenshot](docs/screenshots/scan_example.png)
