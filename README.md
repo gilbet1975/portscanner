@@ -133,8 +133,69 @@ Increase thread count for faster scanning:
 python3 main.py --host 10.0.0.5 --threads 200
 ```
 
+
+
 ## 🏷️ Save Output to Log File
 All scans are automatically saved in the logs/ directory with timestamps.
+
+### JSON Output
+The port scanner automatically generates a structured JSON file for every scan.
+This JSON file contains all relevant metadata and the list of detected open ports.
+
+#### Where the files are stored
+Both the log file and the JSON file are saved in the logs/ directory:
+- scan_YYYYMMDD-HHMMSS.txt — human‑readable scan log
+- scan_json_YYYY-MM-DD_HH-MM-SS.json — structured JSON output
+
+#### What the JSON contains
+The JSON file includes:
+- Target host
+- Timestamp
+- Scan duration (in milliseconds)
+- Number of threads used
+- List of open ports
+- Metadata (scanner version, log file path)
+
+#### Example JSON Output
+```json
+{
+    "host": "127.0.0.1",
+    "timestamp": "2026-06-27T20:35:00.123456",
+    "duration_ms": 123,
+    "threads": 10,
+    "open_ports": [80, 443],
+    "metadata": {
+        "scanner_version": "1.0.0",
+        "log_file": "logs/scan_20260627-203500.txt"
+    }
+}
+```
+
+#### Command Line Usage
+The Portscanner Toolkit is fully controlled via command line arguments.
+You can run scans, generate logs, create JSON output, and compare previous scans.
+
+##### Run a Port Scan
+```bash
+python main.py --scan --host <target> --start <start_port> --end <end_port> --threads <num_threads>
+```
+
+##### Example:
+```bash
+python main.py --scan --host 127.0.0.1 --start 1 --end 1024 --threads 100
+```
+
+This will:
+- scan ports 1–1024
+- use 100 threads
+- save the results in logs/
+- generate both a .txt log file and a .json output file
+
+##### Optional: Custom Output Filename
+```bash
+python main.py --scan --output myscan.txt
+```
+The file will still be placed inside the logs/ directory.
 
 ### Run the Diff Analyzer
 Compare two previous scans:
