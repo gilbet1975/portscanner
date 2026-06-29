@@ -5,158 +5,129 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge">
+  <img src="https://img.shields.io/github/v/release/gilbet1975/portscanner?style=for-the-badge">
   <img src="https://img.shields.io/github/last-commit/gilbet1975/portscanner?style=for-the-badge">
   <img src="https://img.shields.io/github/languages/top/gilbet1975/portscanner?style=for-the-badge">
 </p>
 
 # 🔍 Portscanner Toolkit  
-### A fast, modular, and extensible network security toolkit  
+### A fast, modular, extensible network security toolkit  
 by **@gilbet1975**
 
 ---
 
 ## 🚀 Overview
 
-The **Portscanner Toolkit** is a high‑performance, multi‑threaded network scanner with a built‑in diff analyzer.  
+The **Portscanner Toolkit** is a high‑performance, multi‑threaded network scanner with a powerful diff analyzer and multiple export formats (TXT, JSON, HTML).  
 It is designed for:
 
 - Security researchers  
 - Network administrators  
 - Home lab enthusiasts  
-- Anyone who wants fast, clear insights into open ports and service changes  
+- Students learning networking & cybersecurity  
 
-The toolkit is fully modular and easy to extend.
+The toolkit is fully modular, easy to extend, and built with clean architecture principles.
 
 ---
 
-## ✨ Features
+# ✨ Feature Highlights (v1.1.0)
 
-### 🔥 Multi‑Threaded Port Scanner
-- Extremely fast TCP scanning  
+## 🔥 Multi‑Threaded Port Scanner
+- Ultra‑fast TCP scanning  
 - Configurable port ranges  
-- Banner grabbing (service identification)  
+- Banner grabbing (planned)  
 - Automatic timestamped log files  
+- JSON output for structured analysis  
 
-### 🔥 Diff Analyzer
-Compare two scan results and detect:
+## 🔄 Diff Analyzer (TXT, JSON, HTML)
+Compare two scans and detect:
 
 - ➕ Newly opened ports  
-- ➖ Ports that have closed  
-- ✳️ Changed banners (e.g., version updates)  
+- ➖ Closed ports  
+- ✳️ Changed banners (planned)  
 
-Optional: Save the diff report automatically.
+Export formats:
 
-### 🔥 Unified CLI
+| Format | Description |
+|--------|-------------|
+| **TXT** | Human‑readable diff |
+| **JSON** | Machine‑readable diff for automation |
+| **HTML** | Beautiful, styled diff report |
 
+## 🧰 Unified CLI
 | Command | Description |
 |--------|-------------|
 | `--scan` | Run a port scan |
 | `--diff` | Compare two scan logs |
 | `--save` | Save diff output |
+| `--html` | Export diff as HTML |
 
 ---
 
-## 🖼️ Screenshots (Placeholders)
+# 🖼️ Screenshots (Placeholders)
 
-> Real screenshots will be added in v1.0.0  
-> For now, here is the planned layout:
-
-### 🔍 Port Scan Output (planned)
+### 🔍 Port Scan Output  
 ![Port Scan Placeholder](https://via.placeholder.com/900x300?text=Port+Scan+Output)
 
-### 🔄 Diff Analyzer Output (planned)
+### 🔄 Diff Analyzer Output  
 ![Diff Analyzer Placeholder](https://via.placeholder.com/900x300?text=Diff+Analyzer+Output)
 
----
-
-## 🧰 Tech Stack
-
-- **Python 3.10+**
-- **Standard Library**
-  - socket
-  - threading
-  - datetime
-  - json
-  - argparse
-- **Project Structure**
-  - Modular structure (scanner, diff, utils)
-  - Clean separation between core logic and the CLI
-- **Future enhancements**
-  - GUI (Tkinter oder PyQt)
-  - HTML‑Export
-  - Plugin‑System
+### 🧾 HTML Report  
+![HTML Report Placeholder](https://via.placeholder.com/900x300?text=HTML+Diff+Report)
 
 ---
 
-## ❓ Why this project?
+# 🧬 Architecture Overview
 
-I wanted to build a port scanner that is fast, transparent, and fully under my control — without the complexity or bloat of many existing tools.  
-This project started as a personal learning journey to deepen my understanding of networking, sockets, multithreading, and clean modular design.
+portscanner/
+│
+├── main.py                 # CLI entry point
+├── logo.svg                # Project logo
+├── README.md               # Documentation
+│
+├── modules/
+│   ├── scanner/
+│   │   ├── threader.py     # Worker threads
+│   │   ├── writer.py       # Log writer
+│   │   ├── utils.py        # Banner grabbing (planned)
+│   │   └── scanner.py      # Core scanning logic
+│   │
+│   ├── diff/
+│   │   ├── diff.py         # Diff logic (TXT)
+│   │   └── diff_report.py  # JSON + HTML diff export
+│   │
+│   ├── output/
+│   │   ├── json_writer.py  # JSON output generator
+│   │   └── metadata.py     # Scan metadata system
+│
+└── logs/                   # Auto-generated logs & reports
 
-Over time, it evolved into a toolkit that is:
-- easy to extend  
-- easy to understand  
-- fully open-source  
-- and built with a clear, modern architecture  
-
-The goal is not to replace professional scanners, but to create a lightweight, modular alternative that is perfect for learning, experimenting, and building custom security tools.
 
 ---
 
-## 📦 Installation
+# 🧪 Usage
 
-Clone the repository and navigate into the project directory:
-
+## 🔍 Basic Port Scan
 ```bash
-git clone https://github.com/<your-username>/portscanner-toolkit.git
-cd portscanner-toolkit
-```
-Run the help menu to see all available options:
-```bash
-python3 main.py --help
-```
-No external dependencies are required — the toolkit uses only Python’s standard library.
-
----
-
-## 🧪 Usage
-
-### 🔍 Basic Port Scan
-Scan a single host with 50 threads:
-```bash
-python3 main.py --host 192.168.1.10 --threads 50
+python main.py --scan --host 192.168.1.10 --threads 50
 ```
 
-### 🧵 Multi‑Threaded Scan
-Increase thread count for faster scanning:
+## 🧵 Multi‑Threaded Scan
 ```bash
-python3 main.py --host 10.0.0.5 --threads 200
+python main.py --scan --host 10.0.0.5 --threads 200
 ```
 
+## 🏷️ Custom Output Filename
+```bash
+python main.py --scan --output myscan.txt
+```
 
+## 📦 JSON Output
+Every scan automatically generates:
+- a human‑readable .txt log
+- a structured .json file
 
-## 🏷️ Save Output to Log File
-All scans are automatically saved in the logs/ directory with timestamps.
-
-### JSON Output
-The port scanner automatically generates a structured JSON file for every scan.
-This JSON file contains all relevant metadata and the list of detected open ports.
-
-#### Where the files are stored
-Both the log file and the JSON file are saved in the logs/ directory:
-- scan_YYYYMMDD-HHMMSS.txt — human‑readable scan log
-- scan_json_YYYY-MM-DD_HH-MM-SS.json — structured JSON output
-
-#### What the JSON contains
-The JSON file includes:
-- Target host
-- Timestamp
-- Scan duration (in milliseconds)
-- Number of threads used
-- List of open ports
-- Metadata (scanner version, log file path)
-
-#### Example JSON Output
+### Example JSON
 ```json
 {
     "host": "127.0.0.1",
@@ -171,121 +142,78 @@ The JSON file includes:
 }
 ```
 
-#### Command Line Usage
-The Portscanner Toolkit is fully controlled via command line arguments.
-You can run scans, generate logs, create JSON output, and compare previous scans.
-
-##### Run a Port Scan
-```bash
-python main.py --scan --host <target> --start <start_port> --end <end_port> --threads <num_threads>
-```
-
-##### Example:
-```bash
-python main.py --scan --host 127.0.0.1 --start 1 --end 1024 --threads 100
-```
-
-This will:
-- scan ports 1–1024
-- use 100 threads
-- save the results in logs/
-- generate both a .txt log file and a .json output file
-
-##### Optional: Custom Output Filename
-```bash
-python main.py --scan --output myscan.txt
-```
-The file will still be placed inside the logs/ directory.
-
-### Run the Diff Analyzer
-Compare two previous scans:
+## 🔄 Diff Analyzer
+Compare two scans
 ```bash
 python main.py --diff logs/scan_old.txt logs/scan_new.txt
 ```
 
-### Save the Diff Report
+### Save diff report
 ```bash
 python main.py --diff scan1.txt scan2.txt --save
 ```
 
-### 📁 Show Help
+### Export as HTML
 ```bash
-python3 main.py --help
+python main.py --diff scan1.txt scan2.txt --html
 ```
 
----
-
-## 📁 Project Structure
-```markdown
-portscanner/
-|-- main.py                 # CLI entry point
-|-- logo.svg                # Logo
-|-- README.md
-|-- modules/
-|  |-- scanner/
-|  |  |-- scanner.py        # Port scanning logic
-|  |  |-- threader.py       # Worker threads
-|  |  |-- utils.py          # Banner grabbing
-|  |  |-- writer.py         # Log writer
-|  |-- diff/
-|  |  |-- diff.py           # Diff logic
-|  |  |-- diff_report.py    # Report formatting
-|  |-- logs/                # Auto-generated logs
-
-```
-
----
+## 📊 Feature Matrix
+| Feature | Status | Version |
+|---------|--------|---------|
+| Multi-threaded TCP scan | ✅ | 1.0.0 |
+| JSON scan output | ✅ | 1.0.0 |
+| TXT diff analyzer |  ✅ | 1.1.0 |
+| JSON diff analyzer | ✅ | 1.1.0 |
+| HTML diff export | ✅ | 1.1.0 |
+| Banner grabbing | 🔄 | In progress | 1.2.0 |
+| UDP scan | 🔄 | Planned | 1.3.0 |
+| GUI | 🔄 | Planned | 2.0.0 |
 
 ## 🛣️ Roadmap
+### Phase 1 — Core Scanner (Completed)
+- [x] Multi-threaded scanning
+- [x] Logging system
+- [x] JSON output
 
-### **Phase 1 — Core Scanner (Completed)**
-- [x] Clean project structure
-- [x] Add README with logo and badges
-- [x] Add installation & usage sections
-- [x] Multi-threaded port scanning
-- [x] Logging system with timestamped files
+### Phase 2 — Output & Analysis (Completed in v1.1.0)
+- [x] JSON diff analyzer
+- [x] HTML diff export
+- [x] Improved diff formatting
 
----
-
-### **Phase 2 — Output & Analysis**
-- [ ] JSON output for scanner
-- [ ] JSON output for diff analyzer
-- [ ] Improved diff report formatting
-- [ ] Auto-save structured scan metadata
-
----
-
-### **Phase 3 — Advanced Scanning Features**
+### Phase 3 — Advanced Scanning
 - [ ] UDP scan mode
-- [ ] Service detection (basic)
-- [ ] Banner grabbing (optional)
-- [ ] Auto-diff mode (compare last two scans automatically)
+- [ ] Banner grabbing
+- [ ] Auto-diff mode
 
----
-
-### **Phase 4 — User Interface**
-- [ ] GUI (Tkinter or PyQt)
-- [ ] Live scan progress view
+### Phase 4 — User Interface
+- [ ] GUI (Tkinter / PyQt)
+- [ ] Live scan progress
 - [ ] Visual diff comparison
-- [ ] Export results from GUI
 
----
+### Phase 5 — Reporting & Export
+- [ ] Markdown export
+- [ ] PDF export
+- [ ] Custom templates
 
-### **Phase 5 — Reporting & Export**
-- [ ] HTML report export
-- [ ] Markdown report export
-- [ ] PDF export (optional)
-- [ ] Custom report templates
+### Phase 6 — Extensibility
+- [ ] Plugin system
+- [ ] Plugin registry
+- [ ] Example plugins
 
----
+## 🧾 Release History
+### v1.1.0 — Diff Analyzer Upgrade
+- Added HTML diff export
+- Added JSON diff export
+- Improved TXT diff formatting
+- Stabilized f‑string handling
+- Modularized diff output system
 
-### **Phase 6 — Extensibility & Plugins**
-- [ ] Plugin system for custom scanners
-- [ ] Plugin loader & registry
-- [ ] Example plugins (e.g., slow-scan, stealth-scan)
-- [ ] Developer documentation for plugin authors
-
----
+### v1.0.0 — Initial Release
+- Multi-threaded scanner
+- JSON output
+- Logging system
+- CLI interface
 
 ## 🤝 Contributing
 Contributions are welcome!
@@ -294,12 +222,8 @@ Feel free to open:
 - Feature requests
 - Pull requests
 
----
-
 ## 📜 License
 This project is licensed under the MIT License.
-
----
 
 ## ⭐ Author
 Gilles Bettendorf  
