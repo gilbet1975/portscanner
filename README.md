@@ -78,7 +78,7 @@ Export formats:
 ---
 
 # 🧬 Architecture Overview
-
+```
 portscanner/
 │
 ├── main.py                 # CLI entry point
@@ -101,7 +101,7 @@ portscanner/
 │   │   └── metadata.py     # Scan metadata system
 │
 └── logs/                   # Auto-generated logs & reports
-
+```
 
 ---
 
